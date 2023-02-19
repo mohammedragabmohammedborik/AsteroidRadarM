@@ -12,12 +12,10 @@ interface AsteroidDao {
    @Query("select * from asteroidDatabaseModel where closeApproachDate>=:startDate and  closeApproachDate <= :endDate order by closeApproachDate asc ")
     fun getAsteroidsToNearestDate(startDate: String, endDate: String): LiveData<List<Asteroid>>
 
-    // here will return list of asteroid list
-    @Query("SELECT * FROM asteroidDatabaseModel")
-    fun getAllAsteroidsList(): LiveData<List<Asteroid>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(vararg asteroids: AsteroidDatabaseModel)
+
 
 }
 
