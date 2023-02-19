@@ -9,10 +9,6 @@ import com.udacity.asteroidradar.Asteroid
 @Dao
 interface AsteroidDao {
 
-//    @Query("select * from databasevideo")
-//    @Query("SELECT * FROM asteroidDatabaseModel WHERE closeApproachDate >= :startDate AND closeApproachDate <= :endDate ORDER BY closeApproachDate ASC")
-//
-
    @Query("select * from asteroidDatabaseModel where closeApproachDate>=:startDate and  closeApproachDate <= :endDate order by closeApproachDate asc ")
     fun getAsteroidsToNearestDate(startDate: String, endDate: String): LiveData<List<Asteroid>>
 
